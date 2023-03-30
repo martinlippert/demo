@@ -25,9 +25,17 @@ public class PublicWeatherService implements WeatherService {
     private void keepHistoricalData(WeatherData data) {
         historicalWeatherData.add(data);
 
-        if (historicalWeatherData.size() > 1000) {
-            historicalWeatherData.remove(0);
+        // if(historicalWeatherData.size() > 10) {
+        //     historicalWeatherData.remove(0);
+        // }
+    }
+
+    @Override
+    public LinkedList<Object> getWeatherReport() {
+        if(historicalWeatherData != null) {
+            return historicalWeatherData;
         }
+        return new LinkedList<Object>();
     }
     
 }
